@@ -1,18 +1,15 @@
 # gulp-basis
-Gulp  BEM  SASS template
 
-## Here is a level 2 subheader with `code`
-```js
-var myVar = true;
-```
+Gulp-BEM-SASS-template
 
-* Point 1
-* Point 2
+## Description
 
-## Subheader
+The purpose of this repository is to gather code insights and snippets into one rep, in order to create best practice standardized structures for new projects. The solutions is focused on:
 
-Lorem ipsum dolor amet sit consctetyer elit sunt
 
-### Here is a level 3 subheader
+* BEM structured css
+* Optimizing SASS workflow
+
+# Questions?
 
 [this is a link](http://www.danishtype.dk)
