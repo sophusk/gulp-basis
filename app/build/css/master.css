@@ -1,0 +1,37 @@
+/* 'master.scss' */
+/* 'variables/_variables.scss' */
+/* -- 'variables/_variables-colors.scss' */
+/* -- 'variables/_variables-typography.scss' */
+/* '_functions.scss' */
+/* '_mixins.scss' */
+/* '_resets.scss' */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 'partials/_typography.scss' */
+/* 'extends/_extends.scss' */
+.test::after {
+  content: 100%;
+  content: false;
+  content: "%";
+  content: value(100%);
+}
+
+/* 'components/_components.scss' */
+.components {
+  color: inherit;
+}
+
+/* '_modules.scss' */
+.modules {
+  color: inherit;
+}
+
+/* '_header.scss' */
+/* -- '_header-mixins.scss' */
+.header {
+  color: red;
+  text-decoration: underline;
+  background: hotpink;
+}

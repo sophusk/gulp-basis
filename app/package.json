@@ -1,0 +1,27 @@
+{
+  "name": "gulp-basis",
+  "version": "1.0.0",
+  "description": "Gulp-BEM-SASS-template",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sophusk",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.9.11",
+    "gulp": "^3.9.1",
+    "gulp-assets": "^0.2.2",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-html-ssi": "0.0.92",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-jshint": "^2.0.1",
+    "gulp-sass": "^2.3.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.4",
+    "gulp-webserver": "^0.9.1",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.2.0"
+  }
+}

@@ -1,0 +1,15 @@
+/* 'variables/_variables.scss' */
+
+$primary: #f9ee33;
+
+$breakpoints: (
+	//"mobile"       : 320px,
+    "phablet"       : 640px,
+    "tablet"        : 768px,
+    "desktop"       : 1024px,
+    "desktop-large" : 1280px,
+    "desktop-xlarge": 1600px
+) !default;
+
+@import '_variables-colors.scss';
+@import '_variables-typography.scss';

@@ -1,0 +1,12 @@
+/* 'extends/_extends.scss' */
+
+$test: 100%;
+
+.test {
+	&::after {
+		content: $test;
+		content: unitless($test);
+		content: unit($test);
+		content: value($test);
+	}
+}

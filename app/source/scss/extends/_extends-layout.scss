@@ -1,0 +1,17 @@
+/* 'extends/_extends-layout.scss' */
+
+// Mixins
+@mixin w($width: 'auto') {
+	@if (unitless($width) {
+		width: $width
+	}
+}
+
+// Class extends
+.w50p {
+	@include w();
+}
+// Placeholder extends
+%w50p {
+	@include w();
+}

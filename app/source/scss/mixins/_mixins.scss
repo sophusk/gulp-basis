@@ -1,0 +1,58 @@
+/* '_mixins.scss' */
+
+@mixin clear() {
+	&::after {
+		content: '';
+		display: table;
+		clear: both;
+	}	
+}
+
+
+@mixin for($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (min-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+}
+
+@mixin for-smarter($breakpoint, $dir: 'up', $offset: 0px) {
+    @if map-has-key($breakpoints, $breakpoint) {
+
+		@if ($dir == 'up') {
+			@media (min-width: (map-get($breakpoints, $breakpoint) + $offset)) {
+	            @content;
+	        }
+		} @else {
+			@media (max-width: (map-get($breakpoints, $breakpoint) - 1px + $offset)) {
+	            @content;
+	        }
+		}
+        
+    } @else {
+        @if ($dir == 'up') {
+            @media (min-width: ($breakpoint + $offset)) {
+                @content;
+            }
+        } @else {
+            @media (max-width: ($breakpoint - 1px + $offset)) {
+                @content;
+            }
+        }
+    }
+}
+
+@mixin show-on-desktop($display: 'block') {
+    display: none;
+    @include for('desktop') {
+        display: $display;
+    }
+}
+
+@mixin show-on-mobile($display: 'block') {
+    display: $display;
+    @include for('desktop') {
+        display: none;
+    }
+}

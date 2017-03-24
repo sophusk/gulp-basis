@@ -1,0 +1,9 @@
+/* '_header.scss' */
+
+@import '_header-mixins.scss';
+
+.header {
+	color: red;
+	text-decoration: underline;
+	background: hotpink;
+}
