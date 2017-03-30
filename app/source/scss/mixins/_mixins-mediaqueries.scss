@@ -1,0 +1,105 @@
+/* '_mixins/mixins-mediaqueries.scss' */
+
+// Media query mixin
+// Should take one to two arguments
+// ex.
+// (300px)
+// (300px, 700px)
+// (0, 700px)
+
+$list-mq: (200px, 400px, 600px);
+$map-mq: (
+	mobile: 320px,
+	tablet: 768px,
+	desktop: 1024px
+);
+
+@mixin mq($min: null, $max: null) {
+	@if ($max == null) {
+		// $min and up
+		@media screen and (min-width: ($min)) {
+			@content;
+		}
+	} @else {
+		@if ($min == 0 or $min == null) {
+			// $max and down
+			@media screen and (max-width: ($max - 1)) {
+				@content;
+			}
+
+		} @else {
+			// $min to $max
+			@if not ($min < ($max - 1)) {
+				@error '"$max" value must be at least 2 greater than "$min" value';
+			} @else {
+				@media screen and (min-width: $min) and (max-width: ($max - 1)) {
+					@content;
+
+				}
+			}
+
+			
+		}
+	}
+}
+@mixin mq-map($min: null, $max: null, $map: $map-mq) {
+
+	// Test string $min against map
+	@if (type-of($min) == 'string') {
+		@if (map-has-key($map, $min)) {
+			$min: map-get($map, $min);
+		} @else {
+			@error '"#{$min}" is not a valid argument';
+		}
+	}
+	// Test string $max against map
+	@if (type-of($max) == 'string') {
+		@if (map-has-key($map, $max)) {
+			$max: map-get($map, $max);
+		} @else {
+			@error '"#{$max}" is not a valid argument';
+		}
+	}
+	
+	// Test $min and $max value data types
+	@if (type-of($min) == 'string' or type-of($min) == 'number') {
+		@if (type-of($max) == 'string' or type-of($max) == 'number') {
+			// Both argments are valid
+			@include mq($min, $max) {
+				@content;
+			};
+
+		} @else {
+			@warn '"#{quote($max)}" is not a valid argument';
+		}
+	} @else {
+		@warn '"#{quote($min)}" is not a valid argument';
+	}
+}
+
+
+.mq-test-1 {
+	@include mq(200px);
+}
+.mq-test-2 {
+	@include mq(200px, 400px) {
+		.child {
+			color: red;
+		}
+	};
+}
+.mq-test-3 {
+	@include mq(0, 400px) {
+		background: #000;
+	}
+}
+
+.mq-map {
+	@include mq-map(2px, mobile) {
+		text-decoration: underline;
+	};
+	@include mq-map(2px, 4px) {
+		text-decoration: underline;
+	};
+}
+

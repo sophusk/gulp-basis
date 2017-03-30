@@ -1,0 +1,123 @@
+/* 'components/scss/_person.scss' */
+
+// ##################################################
+
+// Text color headers
+$this_header-col: #434750;
+
+// Breakpoints
+// Change these or search and replace with existing MQs
+$this_bp-1: 400px;
+$this_bp-2: 800px;
+$this_bp-3: 1200px;
+
+// Item padding
+$this_item-pad: 10px;
+
+
+// ##################################################
+
+.all-wrap {
+	// max-width: 1000px;$
+	// margin: 0 auto;
+}
+.organisation {
+	
+	&__header {
+
+	}
+	&__subheader {
+
+	}
+
+	&__headline,
+	&__subheadline {
+		color: $this_header-col; //
+		font-family: 'Ministry-Bold', sans-serif; //
+		text-transform: uppercase; //
+	}
+	&__subheadline {
+		margin: 0 0 10px 0;
+	}
+	&__section {
+
+	}
+	&__list {
+		margin: 0 -10px;
+		padding: 0 0 20px 0;
+		list-style: none;
+
+		&::after {
+			content: '';
+			display: table;
+			clear: both;
+		}
+	}
+}
+
+.person {
+	$this_double_pad: $this_item-pad * 2;
+
+	position: relative;
+	display: block;
+	float: left;
+	width: calc(100% - #{$this_double_pad});
+	margin: $this_item-pad;
+	padding: 0 0 50px 0;
+
+	@media (min-width: $this_bp-1) and (max-width: ($this_bp-2 - 1px)) {
+		width: calc(50% - #{$this_double_pad});
+		&:nth-child(2n + 1) {
+			clear: left;
+		}
+	}
+	@media (min-width: $this_bp-2) and (max-width: ($this_bp-3 - 1px)) {
+		width: calc(33.3333% - #{$this_double_pad});
+		&:nth-child(3n + 1) {
+			clear: left;
+		}
+	}
+	@media (min-width: $this_bp-3) {
+		width: calc(25% - #{$this_double_pad});
+		&:nth-child(4n + 1) {
+			clear: left;
+		}
+	}
+
+	&__image-wrap {
+		display: block;
+	}
+	&__image {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+	&__data {
+	}
+	&__name {
+		font-family: 'Ministry-Bold', sans-serif; // Necessary?
+		color: $this_header-col; // Necessary?
+		letter-spacing: 1px; // Necessary?
+		text-transform: uppercase;
+		margin: 1.5em 0; 
+	}
+	&__info {
+		margin: 0;
+		font-family: Georgia, serif; // Necessary?
+		color: #333;
+	}
+	&__title,
+	&__email,
+	&__telephone {
+		display: inline-block;
+	}
+	&__title {
+	}
+	&__email {
+		color: #337ab7; // Necessary?
+		text-decoration: underline; // Necessary?
+	}
+	&__telephone {
+	}
+
+}

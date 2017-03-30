@@ -1,17 +1,91 @@
 /* 'extends/_extends-layout.scss' */
 
+$grid: 16;
+
 // Mixins
 @mixin w($width: 'auto') {
-	@if (unitless($width) {
-		width: $width
+	// Acceptable inputs include:
+	// auto and 'auto'
+	// 100%
+	// 20px
+	// calc(100% - 20px)
+	// 1 (Unitless is converted to percentage)
+	@if (type-of($width) == 'number') { // Number value
+		@if (unitless($width)) { // Unit-less value
+
+			@if ($width < 1) {
+				width: $width * 100%;
+			} @else if ($width == round($width)) {
+				width: ($width / $grid) * 100%;
+			} @else {
+				width: $width * 100%;
+			}
+
+		} @else { // Value with unit
+			width: $width;
+		}
+	} @else if (type-of($width) == 'string') { // String value
+		width: unquote($width);
 	}
 }
 
-// Class extends
-.w50p {
-	@include w();
+// // Class extends
+// .w50p {
+// 	@include w(0.5);
+// }
+// // Placeholder extends
+// %w50p {
+// 	@include w(0.5);
+// }
+
+$list-layout-width: (1/3, 1, 1.5, 2, 4, 25px, 50%, 75%, 100%);
+
+@mixin build-selector($width) {
+	
 }
-// Placeholder extends
-%w50p {
-	@include w();
+
+@each $width in $list-layout-width {
+	._w,
+	%w {
+		$value: no-unit($width);
+		$unit: unit($width);
+
+		& {
+			@if ($unit == "%") { // Percentage value
+				&--#{$value}p {
+					@include w($width);
+				}
+			} @else if ($unit == 'px') { // Pixel value
+				&--#{$value}px {
+					@include w($width);
+				}
+			} @else if ($unit == '') { // Unit-less value
+				// $value: $value*100;
+				// &#{$value}p {
+				// 	@include w($width);
+				// }
+
+				// $value: $value;
+				// &--#{$value} {
+				// 	@include w($width);
+				// }
+
+				@if ($value < 1) { // Values less than 1
+					$round: round($value * 100);
+					&--#{$round}p {
+						@include w($value);
+					}
+				} @else { // Values greater than or equal to 1
+					&--#{$value} {
+						@include w($value);
+					}
+				}
+
+			}
+		}
+	}
+}
+
+.test-here {
+	@extend %w--75p;
 }

@@ -1,0 +1,5 @@
+/* 'functions/_functions-color.scss' */
+
+@function grey($val: 50) {
+	$this_col: hsla(0,0, $val, 1);
+}

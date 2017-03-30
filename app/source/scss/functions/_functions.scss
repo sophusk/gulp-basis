@@ -1,5 +1,24 @@
-/* '_functions.scss' */
+/* 'functions/_functions.scss' */
 
-@function grey($val: 50) {
-	$this_col: hsla(0,0, $val, 1);
-}
+
+
+
+
+
+@import '_functions-warnings.scss';
+@import '_functions-math.scss';
+@import '_functions-color.scss';
+@import '_functions-conversion.scss';
+
+// @function dec($value, $decimals) {
+// 	$factor: pow(10, $decimals);
+// 	$result: (round($value * $factor) / $factor);
+// 	@return $result;
+// }
+
+// .dec-test {
+// 	&::after {
+// 		content: pow(10, 3);
+// 		content: dec(2.6666666, 4);
+// 	}
+// }

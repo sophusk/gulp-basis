@@ -1,0 +1,6 @@
+/* 'functions/_functions-conversion.scss' */
+
+@function no-unit($number) {
+	$value: ($number / ($number * 0 + 1));
+	@return $value;
+}

@@ -1,0 +1,8 @@
+/* 'functions/_functions-warnings.scss' */
+
+// Links
+// https://www.sitepoint.com/using-sass-error-warn-and-debug-directives/
+
+@function warn-invalid($input: '[input]') {
+	@return '"#{$input}" is not a valid argument';
+}

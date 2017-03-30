@@ -1,4 +1,8 @@
-/* '_mixins.scss' */
+/* 'mixins/_mixins.scss' */
+
+@import '_mixins-mediaqueries.scss';
+
+
 
 @mixin clear() {
 	&::after {

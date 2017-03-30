@@ -1,0 +1,13 @@
+/* 'functions/_functions-math.scss' */
+
+@function pow($value, $exponent) {
+	$pow: 1;
+	@if ($exponent > 1) {
+		@for $i from 1 through $exponent {
+			$pow: $pow * $value;
+			@debug $pow;
+		}
+		@debug $pow;
+	}
+	@return $pow;
+}

@@ -2,8 +2,37 @@
 /* 'variables/_variables.scss' */
 /* -- 'variables/_variables-colors.scss' */
 /* -- 'variables/_variables-typography.scss' */
-/* '_functions.scss' */
-/* '_mixins.scss' */
+/* 'functions/_functions.scss' */
+/* 'functions/_functions-warnings.scss' */
+/* 'functions/_functions-math.scss' */
+/* 'functions/_functions-color.scss' */
+/* 'functions/_functions-conversion.scss' */
+/* 'mixins/_mixins.scss' */
+/* '_mixins/mixins-mediaqueries.scss' */
+@media screen and (min-width: 200px) and (max-width: 399px) {
+  .mq-test-2 .child {
+    color: red;
+  }
+}
+
+@media screen and (max-width: 399px) {
+  .mq-test-3 {
+    background: #000;
+  }
+}
+
+@media screen and (min-width: 2px) and (max-width: 319px) {
+  .mq-map {
+    text-decoration: underline;
+  }
+}
+
+@media screen and (min-width: 2px) and (max-width: 3px) {
+  .mq-map {
+    text-decoration: underline;
+  }
+}
+
 /* '_resets.scss' */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -11,23 +40,46 @@
 
 /* 'partials/_typography.scss' */
 /* 'extends/_extends.scss' */
-.test::after {
-  content: 100%;
-  content: false;
-  content: "%";
-  content: value(100%);
+/* 'extends/_extends-layout.scss' */
+._w--33p {
+  width: 33.33333%;
+}
+
+._w--1 {
+  width: 6.25%;
+}
+
+._w--1.5 {
+  width: 150%;
+}
+
+._w--2 {
+  width: 12.5%;
+}
+
+._w--4 {
+  width: 25%;
+}
+
+._w--25px {
+  width: 25px;
+}
+
+._w--50p {
+  width: 50%;
+}
+
+._w--75p,
+.test-here {
+  width: 75%;
+}
+
+._w--100p {
+  width: 100%;
 }
 
 /* 'components/_components.scss' */
-.components {
-  color: inherit;
-}
-
 /* '_modules.scss' */
-.modules {
-  color: inherit;
-}
-
 /* '_header.scss' */
 /* -- '_header-mixins.scss' */
 .header {
