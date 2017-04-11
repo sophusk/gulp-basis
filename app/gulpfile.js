@@ -145,5 +145,5 @@ gulp.task('images', function(){
   .pipe(gulp.dest('./build/assets'))
 });
 
-gulp.task('default', ['html:ssi', 'html:watch', 'sass:compile', 'sass:watch', "js:watch", "js:concat", "img:watch", "img:copy", "template:watch", "template:copy", "data:watch", "data:copy", 'browserSync']);
+gulp.task('default', ['handle:copy','html:ssi', 'html:watch', 'sass:compile', 'sass:watch', "js:watch", "js:concat", "img:watch", "img:copy", "template:watch", "template:copy", "data:watch", "data:copy", 'browserSync']);
  
