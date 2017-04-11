@@ -10,7 +10,37 @@ var browserSync = require("browser-sync").create();
 var autoprefixer = require("gulp-autoprefixer");
 var uglify = require("gulp-uglify");
 var webserver = require('gulp-webserver');
-var concat = require("gulp-concat");
+
+
+
+
+
+
+
+
+
+gulp.task('templates', function(){
+  gulp.src('source/templates/*.hbs')
+    .pipe(handlebars({
+      handlebars: require('handlebars')
+    }))
+    .pipe(wrap('Handlebars.template(<%= contents %>)'))
+    .pipe(declare({
+      namespace: 'MyApp.templates',
+      noRedeclare: true, // Avoid duplicate declarations 
+    }))
+    .pipe(concat('templates.js'))
+    .pipe(gulp.dest('build/js/'));
+});
+
+
+
+
+
+
+
+
+
 
 
 gulp.task('html:ssi', function() {
@@ -30,7 +60,6 @@ gulp.task("js:concat", function() {
         .pipe(sourcemaps.write("."))
 		.pipe(gulp.dest('./build/js'))
 		.pipe(browserSync.stream());
-    
 });
 
 gulp.task("js:watch", function() {
