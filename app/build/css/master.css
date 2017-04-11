@@ -43,6 +43,21 @@ body {
   padding: 0;
 }
 
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 /* 'partials/_typography.scss' */
 /* 'extends/_extends.scss' */
 /* 'extends/_extends-layout.scss' */

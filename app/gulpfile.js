@@ -18,12 +18,17 @@ var webserver = require('gulp-webserver');
 
 
 
+var handlebars = require('gulp-handlebars');
+var wrap = require('gulp-wrap');
+var declare = require('gulp-declare');
+//var concat = require('gulp-concat');
 
-gulp.task('templates', function(){
-  gulp.src('source/templates/*.hbs')
-    .pipe(handlebars({
-      handlebars: require('handlebars')
-    }))
+
+
+
+gulp.task('handle:copy', function(){
+  gulp.src('./source/templates/*.hbs')
+    .pipe(handlebars())
     .pipe(wrap('Handlebars.template(<%= contents %>)'))
     .pipe(declare({
       namespace: 'MyApp.templates',
@@ -33,6 +38,22 @@ gulp.task('templates', function(){
     .pipe(gulp.dest('build/js/'));
 });
 
+// gulp.task('templates', function(){
+//   gulp.src('source/templates/*.hbs')
+//     .pipe(handlebars({
+//       handlebars: require('handlebars')
+//     }))
+//     .pipe(wrap('Handlebars.template(<%= contents %>)'))
+//     .pipe(declare({
+//       namespace: 'MyApp.templates',
+//       noRedeclare: true, // Avoid duplicate declarations 
+//     }))
+//     .pipe(concat('templates.js'))
+//     .pipe(gulp.dest('build/js/'));
+// });
+gulp.task("handle:watch", function () {
+   gulp.watch(["./source/**/*/.hbs"], ["handle:copy"]); 
+});
 
 
 
